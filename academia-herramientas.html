@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas IA — Academia Navoa</title>
+<meta name="description" content="Una selección práctica de modelos, asistentes y automatizadores para resolver tareas reales. No necesitas usar todas: necesitas saber cuál usar y cuándo.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<script>if('IntersectionObserver' in window){document.documentElement.classList.add('js');}</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">NAVOA</a>
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-item" id="productsNavItem">
+        <a href="#" id="productsNavToggle">Productos <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-dropdown">
+          <a href="laboratorios.html"><strong>Laboratorios</strong><span>Pharma · Diagnóstico · Dispositivos · Distribuidores</span></a>
+          <a href="clinicas-hospitales.html"><strong>Clínicas y Hospitales</strong><span>Patient journey, agenda y coordinación clínica</span></a>
+          <a href="academia.html"><strong>Academia Navoa</strong><span>Adopción segura de IA para equipos de salud</span></a>
+        </div>
+      </div>
+      <a href="academia.html">Academia</a>
+      <a href="index.html#impacto">Cómo trabajamos</a>
+      <a href="index.html#nosotros">Nosotros</a>
+    </nav>
+    <a href="index.html#cta" class="btn-split btn-split--nav">
+      <span class="btn-split__left">Conversemos</span>
+      <span class="btn-split__right" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="academia-subnav" aria-label="Navegación de Academia">
+  <div class="academia-subnav__inner">
+    <a href="academia.html">Visión general</a>
+    <a href="academia-productividad.html">Productividad</a>
+    <a href="academia-herramientas.html" class="is-active">Herramientas IA</a>
+    <a href="academia-comunidad.html">Comunidad</a>
+    <a href="academia-empresas.html">Programas para empresas</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="product-hero">
+  <div class="product-hero__inner">
+    <span class="product-hero__tag reveal">Academia Navoa · Herramientas</span>
+    <h1 class="reveal">Herramientas IA para trabajar mejor</h1>
+    <p class="product-hero__pain2 reveal">Una selección práctica de modelos, asistentes y automatizadores para resolver tareas reales. No necesitas usar todas: necesitas saber cuál usar y cuándo.</p>
+  </div>
+</section>
+
+<!-- Grid de herramientas -->
+<section class="products" style="padding-bottom:60px;">
+  <div class="section-inner">
+    <div class="tool-grid">
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>ChatGPT</h3><span class="level-badge">No técnico</span></div>
+        <span class="tool-card__category">Modelo de lenguaje general</span>
+        <p>Ideación, síntesis, análisis y asistentes conversacionales para tareas del día a día.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Para arrancar rápido cualquier tarea de escritura, research o brainstorming.</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>Claude</h3><span class="level-badge">No técnico</span></div>
+        <span class="tool-card__category">Modelo de lenguaje general</span>
+        <p>Razonamiento, documentos largos y trabajo estructurado con alta fidelidad al contexto.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Cuando necesitas analizar documentos extensos o mantener coherencia en tareas complejas de varios pasos.</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>Gemini</h3><span class="level-badge">No técnico</span></div>
+        <span class="tool-card__category">Modelo de lenguaje general</span>
+        <p>Integración nativa con el ecosistema Google y capacidades multimodales.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Si tu organización ya trabaja en Google Workspace y quieres integración directa.</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>NotebookLM</h3><span class="level-badge">Intermedio</span></div>
+        <span class="tool-card__category">Trabajo con fuentes propias</span>
+        <p>Convierte tus propios documentos y fuentes en una base de conocimiento consultable.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Para investigar sobre material propio (informes, papers, actas) sin mezclarlo con conocimiento genérico de internet.</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>Make</h3><span class="level-badge">Intermedio</span></div>
+        <span class="tool-card__category">Automatización no-code</span>
+        <p>Conecta aplicaciones y automatiza tareas repetitivas sin escribir código.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Para automatizar flujos entre herramientas que ya usas (formularios, correo, hojas de cálculo).</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>n8n</h3><span class="level-badge level-badge--technical">Técnico</span></div>
+        <span class="tool-card__category">Automatización y workflows avanzados</span>
+        <p>Automatización más profunda y flexible, con lógica condicional y autohospedaje.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Cuando Make se queda corto y necesitas workflows más complejos o control técnico total.</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+      <div class="tool-card reveal">
+        <div class="tool-card__top"><h3>Cursor</h3><span class="level-badge level-badge--technical">Técnico</span></div>
+        <span class="tool-card__category">Desarrollo asistido por IA</span>
+        <p>Editor de código con IA integrada para desarrollo asistido — solo relevante para contenido técnico.</p>
+        <div class="tool-card__when"><strong>Cuándo usarla</strong>Si tu equipo desarrolla software y quiere acelerar con asistencia de IA en el propio editor.</div>
+        <a href="#" class="tool-card__cta">Sitio oficial →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bloque final -->
+<section class="product-diff">
+  <div class="section-inner">
+    <p class="eyebrow eyebrow--dark reveal">La herramienta es solo el principio</p>
+    <p class="product-diff__quote reveal">El valor aparece cuando se integra en un proceso, una decisión o una forma nueva de trabajar.</p>
+    <div class="reveal" style="margin-top:36px;">
+      <a href="academia.html" class="btn-split btn-split--hero">
+        <span class="btn-split__left">Ver programas de Academia Navoa</span>
+        <span class="btn-split__right" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo logo--footer">NAVOA</span>
+        <p>Healthcare Intelligence para Chile y Latinoamérica.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <a href="laboratorios.html">Laboratorios</a>
+        <a href="clinicas-hospitales.html">Clínicas y Hospitales</a>
+        <a href="academia.html">Academia Navoa</a>
+      </div>
+      <div class="footer-col">
+        <h4>Academia</h4>
+        <a href="academia.html">Academia Navoa</a>
+        <a href="academia-productividad.html">Productividad con IA</a>
+        <a href="academia-herramientas.html">Herramientas IA</a>
+        <a href="academia-comunidad.html">Comunidad</a>
+        <a href="academia-empresas.html">Programas para empresas</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navoa</h4>
+        <a href="index.html#impacto">Cómo trabajamos</a>
+        <a href="index.html#nosotros">Nosotros</a>
+      </div>
+      <div class="footer-col footer-col--contact">
+        <h4>Contacto</h4>
+        <p>¿Tienes un desafío en mente?<br>Hablemos.</p>
+        <a href="mailto:hola@navoa.health" class="btn-split btn-split--footer">
+          <span class="btn-split__left">Conversemos</span>
+          <span class="btn-split__right" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 Navoa Healthcare Intelligence. Todos los derechos reservados.</p>
+      <p class="footer-loop">Juicio humano + inteligencia artificial <span>→</span> Mejores decisiones <span>→</span> Mejor salud</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
