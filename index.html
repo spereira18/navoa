@@ -932,13 +932,25 @@ html.js .reveal.in-view{ opacity: 1; transform: translateY(0); }
 @media (max-width: 860px){
   .nav-item > a{ justify-content: space-between; }
   .nav-dropdown{
-    position: static; transform: none; opacity: 1; visibility: visible;
+    position: static;
+    left: auto;
+    width: auto;
+    min-width: 0;
+    transform: none;
+    opacity: 1; visibility: visible;
     display: none; box-shadow: none; background: rgba(17,17,17,0.03);
     margin: 0 var(--edge) 10px;
     padding: 6px 0;
     border-radius: 14px;
   }
-  .nav-item.open .nav-dropdown{ display: block; }
+  .nav-item.open .nav-dropdown{
+    display: block;
+    transform: none;
+  }
+  .nav-dropdown a{
+    width: 100%;
+    padding: 13px 16px;
+  }
   .nav-dropdown a strong{ color: var(--ink); }
   .nav-dropdown a span{ color: var(--text-soft); }
 }
