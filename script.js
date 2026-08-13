@@ -6,13 +6,21 @@ if (navToggle) {
   navToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
     navToggle.classList.toggle('active', isOpen);
+    if (!isOpen && productsNavItem) {
+      productsNavItem.classList.remove('open');
+      productsNavToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
+      if (link === productsNavToggle && window.innerWidth <= 860) return;
       navLinks.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+      navToggle.classList.remove('active');
     });
   });
 }
@@ -56,10 +64,22 @@ if (productsNavItem && productsNavToggle) {
   productsNavToggle.addEventListener('click', (e) => {
     if (window.innerWidth <= 860) {
       e.preventDefault();
-      productsNavItem.classList.toggle('open');
+      const isOpen = productsNavItem.classList.toggle('open');
+      productsNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
   });
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 860) {
+    navLinks?.classList.remove('open');
+    navToggle?.classList.remove('active');
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.setAttribute('aria-label', 'Abrir menú');
+    productsNavItem?.classList.remove('open');
+    productsNavToggle?.setAttribute('aria-expanded', 'false');
+  }
+});
 
 // ============ FAQ accordion (Academia) — defensivo, no afecta otras páginas ============
 document.querySelectorAll('.faq-item__q').forEach(btn => {

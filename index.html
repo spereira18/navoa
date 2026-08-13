@@ -164,6 +164,7 @@ html.js .reveal.in-view{ opacity: 1; transform: translateY(0); }
   max-width: var(--container);
   margin: 0 auto;
   padding: 18px var(--edge);
+  min-height: 66px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,6 +179,7 @@ html.js .reveal.in-view{ opacity: 1; transform: translateY(0); }
   display: flex;
   align-items: center;
   gap: 9px;
+  flex-shrink: 0;
 }
 .logo__mark{
   display: flex;
@@ -239,16 +241,20 @@ html.js .reveal.in-view{ opacity: 1; transform: translateY(0); }
     gap: 0;
     border-bottom: 1px solid rgba(17,17,17,0.08);
     max-height: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: max-height .45s var(--ease);
   }
-  .nav-links.open{ max-height: 320px; }
+  .nav-links.open{ max-height: calc(100dvh - 66px); }
   .nav-links a{
     padding: 16px var(--edge);
     border-top: 1px solid rgba(17,17,17,0.06);
     opacity: 1;
   }
   .nav-toggle{ display: flex; }
+  .nav-toggle.active span:nth-child(1){ transform: translateY(9px) rotate(45deg); }
+  .nav-toggle.active span:nth-child(2){ opacity: 0; }
+  .nav-toggle.active span:nth-child(3){ transform: translateY(-9px) rotate(-45deg); }
 }
 
 /* =========================================================
@@ -924,10 +930,13 @@ html.js .reveal.in-view{ opacity: 1; transform: translateY(0); }
   color: var(--on-dark-soft);
 }
 @media (max-width: 860px){
+  .nav-item > a{ justify-content: space-between; }
   .nav-dropdown{
     position: static; transform: none; opacity: 1; visibility: visible;
     display: none; box-shadow: none; background: rgba(17,17,17,0.03);
-    margin: 4px var(--edge) 8px;
+    margin: 0 var(--edge) 10px;
+    padding: 6px 0;
+    border-radius: 14px;
   }
   .nav-item.open .nav-dropdown{ display: block; }
   .nav-dropdown a strong{ color: var(--ink); }
@@ -2370,7 +2379,7 @@ html.js .reveal.in-view{ opacity: 1; transform: translateY(0); }
 
     <nav class="nav-links" id="navLinks">
       <div class="nav-item" id="productsNavItem">
-        <a href="#" id="productsNavToggle">Productos <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#" id="productsNavToggle" aria-haspopup="true" aria-expanded="false">Productos <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="nav-dropdown">
           <a href="laboratorios.html"><strong>Laboratorios</strong><span>Pharma · Diagnóstico · Dispositivos · Distribuidores</span></a>
           <a href="clinicas-hospitales.html"><strong>Clínicas y Hospitales</strong><span>Patient journey, agenda y coordinación clínica</span></a>
@@ -3156,13 +3165,21 @@ if (navToggle) {
   navToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
     navToggle.classList.toggle('active', isOpen);
+    if (!isOpen && productsNavItem) {
+      productsNavItem.classList.remove('open');
+      productsNavToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
+      if (link === productsNavToggle && window.innerWidth <= 860) return;
       navLinks.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+      navToggle.classList.remove('active');
     });
   });
 }
@@ -3206,10 +3223,22 @@ if (productsNavItem && productsNavToggle) {
   productsNavToggle.addEventListener('click', (e) => {
     if (window.innerWidth <= 860) {
       e.preventDefault();
-      productsNavItem.classList.toggle('open');
+      const isOpen = productsNavItem.classList.toggle('open');
+      productsNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
   });
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 860) {
+    navLinks?.classList.remove('open');
+    navToggle?.classList.remove('active');
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.setAttribute('aria-label', 'Abrir menú');
+    productsNavItem?.classList.remove('open');
+    productsNavToggle?.setAttribute('aria-expanded', 'false');
+  }
+});
 
 // ============ FAQ accordion (Academia) — defensivo, no afecta otras páginas ============
 document.querySelectorAll('.faq-item__q').forEach(btn => {
